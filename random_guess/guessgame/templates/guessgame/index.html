@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Guessing Game</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Random Number Guessing Game</h1>
+    <p>Guess a number between 1 and 10.</p>
+
+    <form method="POST" action="{% url 'result' %}">
+        {% csrf_token %}
+        <input type="number" name="guess" min="1" max="10" required>
+        <button type="submit">Submit Guess</button>
+    </form>
+</body>
+</html>
